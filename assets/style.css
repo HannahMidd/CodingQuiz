@@ -1,18 +1,53 @@
 :root {
-  --color-1: rgb(129, 202, 245);
+  --color-1: rgb(195, 228, 248);
   --color-2: blue;
+  --color-3: white;
 
 }
 
+body {
+  background-color: beige;
+}
+
+/* Applies to "Time" section of nav bar */
+.timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Applies to Nav bar items */
+.Navigation-Bar {
+  display: inline;
+  font-size: 1.4em;
+}
+
+/* Applies to "Coding Quiz Challenge" - "Start Quiz" Button */
  .coding-quiz-intro {
 display: flex;
 flex-direction: column;
 align-items: center;
+flex-wrap: wrap;
 background-color: var(--color-1);
 color: var(--color-2);
  }
 
- footer {
-  background-color: var(--color-1);
-  color: var(--color-2);
- }
+ 
+ button {
+   width: 200px;
+   height: 45px;
+   color: var(--color-3);
+   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
+  }
+  button:hover {
+    background: linear-gradient(to bottom, var(--color-2), var(--color-1));
+  }
+  footer {
+   background-color: var(--color-1);
+   color: var(--color-2);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   margin-top: 500px;
+  }
