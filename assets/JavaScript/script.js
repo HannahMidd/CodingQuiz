@@ -1,7 +1,14 @@
+// variables created via elements in the Document Object Model (DOM)
 var startButton = document.getElementById('start-button')
 var TimerEl = document.getElementById("timer-text")
+var questionsEl = document.getElementById("questions");
+var timerEl = document.getElementById("time");
+var choicesEl = document.getElementById("choices");
+var submitBtn = document.getElementById("submit");
+var initialsEl = document.getElementById("initials");
+var feedbackEl = document.getElementById("feedback");
 
-// This line of code gives testers 90 seconds to answer the questions
+// Timer count that gives testers 90 seconds to answer all questions
 let count = 90; 
 
 // Function to begin countdown
@@ -10,6 +17,5 @@ setInterval(function (){
 count -= 1;
 TimerEl.textContent= count;
 }, 1000);
- if (timerEl < 0) {
-      timerEl = 0; }
+
 });
