@@ -59,7 +59,8 @@ padding: 100px;
    position: fixed;
    bottom: 0;
    width: 100%;
-   align-items: center;
+   display: flex;
+  justify-content: center;
    padding: 20px;
    margin-top: 300px;
   }
