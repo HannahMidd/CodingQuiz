@@ -2,11 +2,11 @@
 var startButton = document.getElementById("start-button");
 var TimerEl = document.getElementById("timer-text");
 var questionsEl = document.getElementById("questions");
-var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
+var currentQuestionIndex = 0;
 
 // Timer count that gives testers 90 seconds to answer all questions
 let count = 90;
@@ -28,4 +28,16 @@ function beginQuiz() {
 // Unhides questions
 questionsEl.removeAttribute("class");
 
-// left off around line 33
+getQuestion();
+
+// Function to grab question from array
+function getQuestion() {
+  var currentQuestion = questions[currentQuestionIndex];
+}
+
+// Update the page title and options with current question and answers
+var questionTitleEl = document.getElementById("question-title");
+questionTitleEl.textContent = currentQuestion.title;
+
+// Reset choice string empty
+  choicesEl.innerHTML = '';
