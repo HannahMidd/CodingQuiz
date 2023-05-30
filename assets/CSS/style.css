@@ -72,3 +72,9 @@ padding: 100px;
   .hide {
     display: none;
   }
+
+  /* CSS that will apply effects to the HTML on 'Highscores */
+  .choices button {
+  display: block;
+  background: linear-gradient(to bottom, var(--color-1), var(--color-2));
+}
