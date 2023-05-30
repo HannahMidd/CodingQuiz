@@ -7,6 +7,7 @@ var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 var currentQuestionIndex = 0;
+var time = questions.length * 15;
 
 // Timer count that gives testers 90 seconds to answer all questions
 let count = 90;
@@ -22,8 +23,8 @@ startButton.addEventListener("click", function () {
 
 // Hides previous quiz messages
 function beginQuiz() {
-  var beginQuizEl = document.getElementById("start-screen");
-//   beginQuizEl.setAttribute("class", "hide");
+  var startEl = document.getElementById("start-screen");
+  startEl.setAttribute("class", "hide");
 //   Event listener to begin quiz
   startButton.addEventListener("click", beginQuiz);
   // Unhides questions
@@ -89,5 +90,6 @@ function questionClick(event) {
   }
 }
 
-// Check out line 110
+// Clicks
 startButton.onclick = beginQuiz;
+choicesEl.onclick = questionClick;

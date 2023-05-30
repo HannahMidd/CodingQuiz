@@ -2,13 +2,11 @@
   --color-1: rgba(161, 245, 245, 0.884);
   --color-2: rgb(29, 173, 184);
   --color-3: rgb(19, 18, 18);
-
 }
 
 body {
   background-color: var(--color-3);
 }
-
 
 /* Applies to "Time" section of nav bar */
 .timer {
@@ -38,55 +36,56 @@ body {
 }
 
 /* Applies to "Coding Quiz Challenge" - "Start Quiz" Button */
- .coding-quiz-intro {
-display: flex;
-flex-direction: column;
-align-items: center;
-flex-wrap: wrap;
-color: var(--color-1);
-padding: 100px;
- }
+.coding-quiz-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--color-1);
+  padding: 100px;
+}
 
- 
- button {
-   width: 200px;
-   height: 45px;
-   color: black;
-   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
-  }
-  button:hover {
-    background: linear-gradient(to bottom, var(--color-2), var(--color-1));
-  }
-  footer {
-   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-   display: flex;
+button {
+  width: 200px;
+  height: 45px;
+  color: black;
+  background: linear-gradient(to bottom, var(--color-1), var(--color-2));
+}
+button:hover {
+  background: linear-gradient(to bottom, var(--color-2), var(--color-1));
+}
+footer {
+  background: linear-gradient(to bottom, var(--color-1), var(--color-2));
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
   justify-content: center;
-   padding: 20px;
-  
-  }
+  padding: 10px;
+}
 
-  /* Will hide sections and pages until user completes actions to make them visible */
-  .hide {
-    display: none;
-  }
+/* Will hide sections and pages until user completes actions to make them visible */
+.hide {
+  display: none;
+}
 
-  /* CSS that will apply effects to the HTML on 'Highscores */
-  .choices button {
+/* CSS that will apply effects to the HTML on 'Highscores */
+.choices button {
   display: block;
   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
 }
 
 #question-title {
-  color: var(--color-2);
+  color: var(--color-1);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding-top: 115px;
 }
 
 #choices {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px;
 }
