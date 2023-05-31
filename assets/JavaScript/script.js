@@ -11,7 +11,24 @@ var endScreenEl = document.getElementById("end-of-game");
 var finalScoreEl = document.getElementById("final-score");
 
 var currentQuestionIndex = 0;
-var time = questions.length * 15;
+var time = 90;
+
+// ----------------------Begin 90 second timer count ------------------------------
+startBtn.addEventListener("click", function () {
+  time = 90;
+  let count = 90;
+  var timer = setInterval(function () {
+    time -= 1;
+    timerEl.textContent = time;
+
+    // Check if the timer has reached 0
+    if (time === 0) {
+      // Stop the timer
+      clearInterval(timer);
+      console.log("Timer stopped at 0.");
+    }
+  }, 1000);
+});
 
 // ----------------------------------Begin Quiz Section-------------------------------
 
@@ -20,23 +37,6 @@ function beginQuiz() {
   startEl.setAttribute("class", "hide");
   // Unhides questions
   questionsEl.removeAttribute("class");
-
-  // 90 second timer count and function to begin quiz
-  startBtn.addEventListener("click", function () {
-    time = questions.length * 15;
-    let count = 90;
-    timer = setInterval(function () {
-      time -= 1;
-      timerEl.textContent = time;
-
-      // Check if the timer has reached 0
-      if (time === 0) {
-        // Stop the timer
-        clearInterval(timer);
-        console.log("Timer stopped at 0.");
-      }
-    }, 1000);
-  });
   getQuestion();
 }
 
