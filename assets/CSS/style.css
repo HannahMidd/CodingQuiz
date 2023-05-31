@@ -103,3 +103,9 @@ footer {
   align-items: center;
   padding-top: 70px;
 }
+
+#end-of-game {
+  color: var(--color-1);
+  font-size: 1.5em;
+  padding-top: 70px;
+}

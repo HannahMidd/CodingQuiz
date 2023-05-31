@@ -1,6 +1,6 @@
 // variables created via elements in the Document Object Model (DOM)
 var startButton = document.getElementById("start-button");
-var TimerEl = document.getElementById("timer-text");
+var timerEl = document.getElementById("timer-text");
 var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
@@ -13,10 +13,11 @@ var time = questions.length * 15;
 
 // 90 second timer count and function to begin countdown
 startButton.addEventListener("click", function () {
+  time = questions.length * 15;
   let count = 90;
   timer = setInterval(function () {
     count -= 1;
-    TimerEl.textContent = count;
+    timerEl.textContent = count;
 
     // Check if the timer has reached 0
     if (count === 0) {
@@ -67,7 +68,7 @@ function getQuestion() {
 function questionClick(event) {
   var buttonEl = event.target;
 
-  //   If question was answered wrong
+  // If question was answered wrong
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
     // Minus 15 seconds from clock
     time -= 15;
@@ -76,8 +77,17 @@ function questionClick(event) {
       time = 0;
     }
 
+    // Reflect time loss on page
+    timerEl.textContent = time;
+
+    //   // play "wrong" sound effect
+    // sfxWrong.play();
+
     feedbackEl.textContent = "Wrong!";
   } else {
+    // // play "right" sound effect
+    // sfxRight.play();
+
     feedbackEl.textContent = "Correct!";
   }
 
@@ -87,7 +97,7 @@ function questionClick(event) {
     feedbackEl.setAttribute("class", "feedback hide");
   }, 1000);
 
-  //   Grab next question unless we are out of questions
+  // Grab next question unless we are out of questions
   currentQuestionIndex++;
   if (time <= 0 || currentQuestionIndex === questions.length) {
     endOfQuiz();
@@ -100,11 +110,10 @@ function questionClick(event) {
 function endOfQuiz() {
   // Will stop timer if there was still time left
   clearInterval(timer);
+  // Unhides end screen
   endScreenEl.removeAttribute("class");
-
-  // Hide questions
+  // Hides questions
   questionsEl.setAttribute("class", "hide");
-
   // Display final score
   finalScoreEl.textContent = time;
 }
