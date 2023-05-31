@@ -6,19 +6,25 @@ var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
+var endScreenEl = document.getElementById("end-of-game");
+var finalScoreEl = document.getElementById("final-score");
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 
-// Timer count that gives testers 90 seconds to answer all questions
-let count = 90;
-
-// Function to begin countdown
+// 90 second timer count and function to begin countdown
 startButton.addEventListener("click", function () {
-  setInterval(function () {
+  let count = 90;
+  let timer = setInterval(function () {
     count -= 1;
     TimerEl.textContent = count;
+
+    // Check if the timer has reached 0
+    if (count === 0) {
+      // Stop the timer
+      clearInterval(timer);
+      console.log("Timer stopped at 0.");
+    }
   }, 1000);
-  
 });
 
 // Hides previous quiz messages
@@ -84,10 +90,24 @@ function questionClick(event) {
   //   Grab next question unless we are out of questions
   currentQuestionIndex++;
   if (time <= 0 || currentQuestionIndex === questions.length) {
-    quizEnd();
+    endOfQuiz();
   } else {
     getQuestion();
   }
+}
+
+
+// End of Quiz Section
+function endOfQuiz () {
+  // Will stop timer if there was still time left
+  clearInterval(timer)
+  endScreenEl.removeAttribute('class');
+
+  // Hide questions
+  questionsEl.setAttribute("class", "hide");
+
+  // Display final score
+  finalScoreEl.textContent = time;
 }
 
 // Clicks

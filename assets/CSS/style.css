@@ -89,3 +89,8 @@ footer {
   align-items: center;
   padding: 50px;
 }
+
+/* Applies to "Correct!" or "Wrong!" feedback */
+#feedback {
+  color: var(--color-1);
+}
