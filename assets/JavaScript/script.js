@@ -1,5 +1,6 @@
-// variables created via elements in the Document Object Model (DOM)
-var startButton = document.getElementById("start-button");
+// -------------Variables in the Document Object Model (DOM)------------------------
+
+var startBtn = document.getElementById("start-button");
 var timerEl = document.getElementById("timer-text");
 var questionsEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
@@ -8,39 +9,38 @@ var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 var endScreenEl = document.getElementById("end-of-game");
 var finalScoreEl = document.getElementById("final-score");
+
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 
-// 90 second timer count and function to begin countdown
-startButton.addEventListener("click", function () {
-  time = questions.length * 15;
-  let count = 90;
-  timer = setInterval(function () {
-    count -= 1;
-    timerEl.textContent = count;
+// ----------------------------------Begin Quiz Section-------------------------------
 
-    // Check if the timer has reached 0
-    if (count === 0) {
-      // Stop the timer
-      clearInterval(timer);
-      console.log("Timer stopped at 0.");
-    }
-  }, 1000);
-});
-
-// Hides previous quiz messages
 function beginQuiz() {
   var startEl = document.getElementById("start-screen");
   startEl.setAttribute("class", "hide");
-  //   Event listener to begin quiz
-  startButton.addEventListener("click", beginQuiz);
   // Unhides questions
   questionsEl.removeAttribute("class");
 
+  // 90 second timer count and function to begin quiz
+  startBtn.addEventListener("click", function () {
+    time = questions.length * 15;
+    let count = 90;
+    timer = setInterval(function () {
+      time -= 1;
+      timerEl.textContent = time;
+
+      // Check if the timer has reached 0
+      if (time === 0) {
+        // Stop the timer
+        clearInterval(timer);
+        console.log("Timer stopped at 0.");
+      }
+    }, 1000);
+  });
   getQuestion();
 }
 
-// Function to grab question from array
+// ----------------------------------Get Question Section-------------------------------
 function getQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
 
@@ -64,6 +64,8 @@ function getQuestion() {
     choicesEl.appendChild(choiceButton);
   }
 }
+
+// ----------------------------------Question Click Section-------------------------------
 
 function questionClick(event) {
   var buttonEl = event.target;
@@ -106,7 +108,7 @@ function questionClick(event) {
   }
 }
 
-// End of Quiz Section
+// ----------------------------------End of Quiz Section-------------------------------
 function endOfQuiz() {
   // Will stop timer if there was still time left
   clearInterval(timer);
@@ -119,5 +121,5 @@ function endOfQuiz() {
 }
 
 // Clicks
-startButton.onclick = beginQuiz;
+startBtn.onclick = beginQuiz;
 choicesEl.onclick = questionClick;
