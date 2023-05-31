@@ -70,6 +70,12 @@ function getQuestion() {
 
 function questionClick(event) {
   var buttonEl = event.target;
+   setInterval(() => {
+   }, interval);(function () {
+      feedbackEl.setAttribute("class", "feedback-hide");
+    }, 1000);
+    
+  }, interval);
 
   // If question was answered wrong
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
@@ -94,11 +100,17 @@ function questionClick(event) {
     feedbackEl.style.color = "green";
   }
 
+  hideFeedback();
+
   // flash right/wrong feedback on page for 1 second
-  feedbackEl.setAttribute("class", "feedback");
-  setTimeout(function () {
-    feedbackEl.setAttribute("class", "feedback-hide");
-  }, 1000);
+  function hideFeedback() {
+    
+    feedbackEl.setAttribute("class", "feedback");
+    setTimeout(function () {
+      feedbackEl.setAttribute("class", "feedback-hide");
+    }, 1000);
+    
+  }
 
   // Grab next question unless we are out of questions
   currentQuestionIndex++;
