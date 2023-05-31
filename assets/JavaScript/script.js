@@ -12,6 +12,7 @@ var finalScoreEl = document.getElementById("final-score");
 
 var currentQuestionIndex = 0;
 var time = 90;
+var timer;
 
 // ----------------------Begin 90 second timer count ------------------------------
 startBtn.addEventListener("click", function () {
@@ -81,22 +82,22 @@ function questionClick(event) {
 
     // Reflect time loss on page
     timerEl.textContent = time;
-
-    //   // play "wrong" sound effect
-    // sfxWrong.play();
+    // --------------------------------Feedback Section ---------------------------------
+    // If wrong
 
     feedbackEl.textContent = "Wrong!";
+    feedbackEl.style.color = "red";
   } else {
-    // // play "right" sound effect
-    // sfxRight.play();
+    // If correct
 
     feedbackEl.textContent = "Correct!";
+    feedbackEl.style.color = "green";
   }
 
   // flash right/wrong feedback on page for 1 second
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function () {
-    feedbackEl.setAttribute("class", "feedback hide");
+    feedbackEl.setAttribute("class", "feedback-hide");
   }, 1000);
 
   // Grab next question unless we are out of questions
@@ -120,6 +121,40 @@ function endOfQuiz() {
   finalScoreEl.textContent = time;
 }
 
+// -------------------------------Highscore Section---------------------------------------
+function saveHighscore() {
+  // get value of input box
+  var initials = initialsEl.value.trim();
+
+  // make sure value wasn't empty
+  if (initials !== "") {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+    // format new score object for current user
+    var newScore = {
+      score: time,
+      initials: initials,
+    };
+
+    // Push to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Pull up highscores HTML file
+    window.location.href = "highscores.html";
+  }
+}
+
+function checkForEnter(event) {
+  // "13" represents the enter key
+  if (event.key === "Enter") {
+    saveHighscore();
+  }
+}
 // Clicks
 startBtn.onclick = beginQuiz;
 choicesEl.onclick = questionClick;
+submitBtn.onclick = saveHighscore;
+initialsEl.onkeyup = checkForEnter;

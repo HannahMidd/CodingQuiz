@@ -2,6 +2,7 @@
   --color-1: rgba(161, 245, 245, 0.884);
   --color-2: rgb(29, 173, 184);
   --color-3: rgb(19, 18, 18);
+  --test: purple;
 }
 
 body {
@@ -70,6 +71,9 @@ footer {
   display: none;
 }
 
+.feedback-hide {
+  display: none;
+}
 /* CSS that will apply effects to the HTML on 'Highscores */
 .choices button {
   display: block;
@@ -108,4 +112,13 @@ footer {
   color: var(--color-1);
   font-size: 1.5em;
   padding-top: 70px;
+}
+
+.HighScoresHTMLPage {
+  background-color: var(--color-3);
+  color: var(--color-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
 }
