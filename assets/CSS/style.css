@@ -40,9 +40,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   color: var(--color-1);
   padding: 100px;
+ 
 }
 
 button {
@@ -54,6 +54,7 @@ button {
 button:hover {
   background: linear-gradient(to bottom, var(--color-2), var(--color-1));
 }
+
 footer {
   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
   position: fixed;
@@ -74,6 +75,9 @@ footer {
   display: block;
   background: linear-gradient(to bottom, var(--color-1), var(--color-2));
 }
+.choices button:hover {
+  background: linear-gradient(to bottom, var(--color-2), var(--color-1));
+}
 
 #question-title {
   color: var(--color-1);
@@ -93,4 +97,9 @@ footer {
 /* Applies to "Correct!" or "Wrong!" feedback */
 #feedback {
   color: var(--color-1);
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
 }

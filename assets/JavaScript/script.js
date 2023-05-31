@@ -14,7 +14,7 @@ var time = questions.length * 15;
 // 90 second timer count and function to begin countdown
 startButton.addEventListener("click", function () {
   let count = 90;
-  let timer = setInterval(function () {
+  timer = setInterval(function () {
     count -= 1;
     TimerEl.textContent = count;
 
@@ -31,7 +31,7 @@ startButton.addEventListener("click", function () {
 function beginQuiz() {
   var startEl = document.getElementById("start-screen");
   startEl.setAttribute("class", "hide");
-//   Event listener to begin quiz
+  //   Event listener to begin quiz
   startButton.addEventListener("click", beginQuiz);
   // Unhides questions
   questionsEl.removeAttribute("class");
@@ -96,12 +96,11 @@ function questionClick(event) {
   }
 }
 
-
 // End of Quiz Section
-function endOfQuiz () {
+function endOfQuiz() {
   // Will stop timer if there was still time left
-  clearInterval(timer)
-  endScreenEl.removeAttribute('class');
+  clearInterval(timer);
+  endScreenEl.removeAttribute("class");
 
   // Hide questions
   questionsEl.setAttribute("class", "hide");
