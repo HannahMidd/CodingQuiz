@@ -1,28 +1,31 @@
-# CodingQuiz
-## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-## Installation
-N/A
-## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-## Credits
-List your collaborators, if any, with links to their GitHub profiles.
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-If you followed tutorials, include links to those here as well.
-## License
-Please refer to license it GitHub repo
+# Password Generator
 
+## Description
+
+The password generator can be accessed at the following URL: https://hannahmidd.github.io/PasswordGenerator/
+
+This password generator will allow a user to input the desired number of characters for their password and will generate a password based on user requirements for: length, numbers, special characters, uppercase letters and lowercase letters. Follow the usage instructions below for more details. 
+
+![PasswordGeneratorScreenshot](PasswordGeneratorScreenshot.png)
+
+
+## Installation
+
+N/A
+
+## Usage
+
+When arriving to the password generator page, click "generate password" to be prompted to the first pop up. Input your desired number of characters for your password (must be between 8-126 characters). 
+
+Follow the prompts to confirm (Okay) or deny (Cancel) numbers, special characters, uppercase letters and lowercase letters for your password.
+
+Once you have answered all prompts, your generated password will appear in the box.
+
+
+## Credits
+
+N/A
+
+## License
+
+Please refer to the LICENSE in the repo.
