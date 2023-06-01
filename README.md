@@ -15,9 +15,9 @@ N/A
 ## Usage
 
 Click "Start Quiz" to begin the game. 
-![Alt Text](./CodingQuizScreenshot.png)
+![Alt Text](./assets/CodingQuizScreenshot.png)
 Read the question and click on the correct answer. 
-![Alt Text](./questionSample.png)
+![Alt Text](./assets/questionSample.png)
 You will notice feedback ("Correct!" or "Wrong!") after each question is answered. When you get to the end of the game, or run out of time, your final score will appear. 
 
 Add your initials where prompted, and click "submit" to add your score to the Highscores page. Come back later to play again, and notice that your previous scores have been stored locally for you! 
