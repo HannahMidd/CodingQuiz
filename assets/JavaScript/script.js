@@ -9,6 +9,7 @@ var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 var endScreenEl = document.getElementById("end-of-game");
 var finalScoreEl = document.getElementById("final-score");
+var questionTitleEl = document.getElementById("question-title");
 
 var currentQuestionIndex = 0;
 var time = 90;
@@ -112,6 +113,9 @@ function questionClick(event) {
     feedbackEl.style.display = "block";
     feedbackEl.textContent = "Correct!";
     feedbackEl.style.color = "green";
+    
+    // Grab next question unless we are out of questions
+
     if (time <= 0 || currentQuestionIndex === questions.length) {
       endOfQuiz();
       hideFeedback();
@@ -121,9 +125,8 @@ function questionClick(event) {
     }
   }
 
-  // flash right/wrong feedback on page for 1 second
 
-  // Grab next question unless we are out of questions
+
 }
 
 // ----------------------------------End of Quiz Section-------------------------------
