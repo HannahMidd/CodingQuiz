@@ -68,14 +68,14 @@ function getQuestion() {
 
 // ----------------------------------Question Click Section-------------------------------
 
+function hideFeedback() {
+  setTimeout(function () {
+    feedbackEl.style.display = "none";
+    getQuestion();
+  }, 1000);
+}
 function questionClick(event) {
   var buttonEl = event.target;
-   setInterval(() => {
-   }, interval);(function () {
-      feedbackEl.setAttribute("class", "feedback-hide");
-    }, 1000);
-    
-  }, interval);
 
   // If question was answered wrong
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
@@ -87,38 +87,38 @@ function questionClick(event) {
     }
 
     // Reflect time loss on page
+    feedbackEl.style.display = "block";
     timerEl.textContent = time;
     // --------------------------------Feedback Section ---------------------------------
     // If wrong
 
     feedbackEl.textContent = "Wrong!";
     feedbackEl.style.color = "red";
+    if (time <= 0 || currentQuestionIndex === questions.length) {
+      endOfQuiz();
+      hideFeedback();
+    } else {
+      hideFeedback();
+      currentQuestionIndex++;
+    }
   } else {
     // If correct
 
+    feedbackEl.style.display = "block";
     feedbackEl.textContent = "Correct!";
     feedbackEl.style.color = "green";
+    if (time <= 0 || currentQuestionIndex === questions.length) {
+      endOfQuiz();
+      hideFeedback();
+    } else {
+      currentQuestionIndex++;
+      hideFeedback();
+    }
   }
-
-  hideFeedback();
 
   // flash right/wrong feedback on page for 1 second
-  function hideFeedback() {
-    
-    feedbackEl.setAttribute("class", "feedback");
-    setTimeout(function () {
-      feedbackEl.setAttribute("class", "feedback-hide");
-    }, 1000);
-    
-  }
 
   // Grab next question unless we are out of questions
-  currentQuestionIndex++;
-  if (time <= 0 || currentQuestionIndex === questions.length) {
-    endOfQuiz();
-  } else {
-    getQuestion();
-  }
 }
 
 // ----------------------------------End of Quiz Section-------------------------------
