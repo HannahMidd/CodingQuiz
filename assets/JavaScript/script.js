@@ -78,16 +78,15 @@ function questionClick(event) {
   var buttonEl = event.target;
   console.log("eventfeedbackline81");
 
-  
   // If question was answered wrong
   if (buttonEl.value !== questions[currentQuestionIndex].answer) {
     // Minus 15 seconds from clock
     time -= 15;
-    
+
     if (time < 0) {
       time = 0;
     }
-    
+
     // User clicks but not on a choice
     if (!buttonEl.matches(".choice")) {
       return;
